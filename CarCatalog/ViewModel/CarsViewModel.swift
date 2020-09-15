@@ -31,10 +31,6 @@ class CarsViewModel {
     
     func userDeletedRow(at index: Int) {
         carsModel.remove(at: index)
-        
-        if let delegate = delegate {
-            delegate.carsViewModelDisplayDelegateReloadData(self)
-        }
     }
 }
 
@@ -56,6 +52,10 @@ extension CarsViewModel: EditorViewModelDelegate {
     }
     
     func editorViewModelDelegateDeleteCar(_ viewModel: AnyObject, at index: Int) {
-        userDeletedRow(at: index)
+        carsModel.remove(at: index)
+        
+        if let delegate = delegate {
+            delegate.carsViewModelDisplayDelegateReloadData(self)
+        }
     }
 }

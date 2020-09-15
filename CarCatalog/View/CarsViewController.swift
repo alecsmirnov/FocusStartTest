@@ -90,12 +90,26 @@ extension CarsViewController: UITableViewDelegate {
         }
     }
     
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            if let carsViewModel = carsViewModel {
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let delete = UIContextualAction(style: .destructive, title: "Delete") { [unowned self] (_, _, completionHandler) in
+            if let carsViewModel = self.carsViewModel {
                 carsViewModel.userDeletedRow(at: indexPath.row)
+                self.carsTableView.reloadData()
+                
+                completionHandler(true)
             }
         }
+        
+        let edit = UIContextualAction(style: .normal, title: "Edit") { [unowned self] (_, _, completionHandler) in
+            self.tableView(tableView, didSelectRowAt: indexPath)
+            
+            completionHandler(true)
+        }
+        
+        delete.image = UIImage.init(systemName: "trash")
+        edit.image = UIImage.init(systemName: "pencil")
+        
+        return UISwipeActionsConfiguration(actions: [delete, edit])
     }
 }
 
