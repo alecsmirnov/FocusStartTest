@@ -28,8 +28,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             fatalError("cannot attach window to the scene")
         }
         
-        let car = Car(year: "test year", manufacturer: "test manufacturer", model: "test model", type: "test type")
-        carsModel.append(car: car)
+        fillModel()
         
         appSetting(window: window)
     }
@@ -63,6 +62,18 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         // Save changes in the application's managed object context when the application transitions to the background.
         (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
+    }
+    
+    private func fillModel() {
+        if carsModel.isEmpty {
+            let car1 = Car(year: "2001", manufacturer: "Ford", model: "Shelby GT500", type: "2-door coupe")
+            let car2 = Car(year: "2016", manufacturer: "Porsche", model: "911", type: "2-door convertible")
+            let car3 = Car(year: "2020", manufacturer: "Lexus", model: "LX 570", type: "4-door SUV")
+            
+            carsModel.append(car: car1)
+            carsModel.append(car: car2)
+            carsModel.append(car: car3)
+        }
     }
     
     private func appSetting(window: UIWindow) {

@@ -20,12 +20,15 @@ class CarsViewController: UIViewController {
     private var reloadType = ScheduleReloadType.none
     
     @IBOutlet private var carsTableView: UITableView!
+    @IBOutlet private var emptyTableViewLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         carsTableView.dataSource = self
         carsTableView.delegate = self
+        
+        carsTableView.tableFooterView = UIView()
         
         if let carsViewModel = carsViewModel {
             carsViewModel.delegate = self
@@ -51,10 +54,12 @@ class CarsViewController: UIViewController {
 extension CarsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         var rowsCount = 0
-        
+
         if let carsViewModel = carsViewModel {
             rowsCount = carsViewModel.rowsCount
         }
+        
+        emptyTableViewLabel.isHidden = rowsCount == 0 ? false : true
 
         return rowsCount
     }

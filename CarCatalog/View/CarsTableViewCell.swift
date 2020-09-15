@@ -12,10 +12,10 @@ class CarsTableViewCell: UITableViewCell {
     var carsTableViewModelCell: CarsTableViewModelCell? {
         didSet {
             if let carsTableViewModelCell = carsTableViewModelCell {
-                yearLabel.text = carsTableViewModelCell.year
-                manufacturerLabel.text = carsTableViewModelCell.manufacturer
-                modelLabel.text = carsTableViewModelCell.model
-                typeLabel.text = carsTableViewModelCell.type
+                yearLabel.text = "Year:\t\t\t \(carsTableViewModelCell.year)"
+                manufacturerLabel.text = "Manufacturer:\t \(carsTableViewModelCell.manufacturer)"
+                modelLabel.text = "Model:\t\t\t \(carsTableViewModelCell.model)"
+                typeLabel.text = "Type:\t\t\t \(carsTableViewModelCell.type)"
             }
         }
     }
