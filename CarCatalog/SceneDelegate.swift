@@ -79,18 +79,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
     
     private func appSetting(window: UIWindow) {
-        let tabBarController = window.rootViewController as! UITabBarController
-        
-        guard let tabBarViewControllers = tabBarController.viewControllers else { return }
-        
-        let navigationController = tabBarViewControllers[TabBarItems.cars] as! UINavigationController
+        let navigationController = window.rootViewController as! UINavigationController
         let carsViewController = navigationController.viewControllers.first as! CarsViewController
-        let addViewController = tabBarViewControllers[TabBarItems.add] as! AddViewController
         
         let carsViewModel = CarsViewModel(carsModel: carsModel)
-        let addViewModel = AddViewModel(delegate: carsViewModel)
-        
+ 
         carsViewController.carsViewModel = carsViewModel
-        addViewController.addViewModel = addViewModel
     }
 }

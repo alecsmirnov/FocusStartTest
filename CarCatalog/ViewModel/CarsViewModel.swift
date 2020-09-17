@@ -21,6 +21,10 @@ class CarsViewModel {
         self.carsModel = carsModel
     }
     
+    func addViewModel() -> AddViewModel {
+        return AddViewModel(delegate: self)
+    }
+    
     func editViewModel(at index: Int) -> EditViewModel {
         return EditViewModel(car: carsModel.get(at: index), row: index, delegate: self)
     }

@@ -52,6 +52,20 @@ class CarsViewController: UIViewController {
         
         reloadType = ScheduleReloadType.none
     }
+    
+    @IBAction func didTapAdd(_ sender: UIBarButtonItem) {
+        if let storyboard = storyboard {
+            let addViewController = storyboard.instantiateViewController(withIdentifier: StoryboardIds.addViewController) as! AddViewController
+            
+            if let carsViewModel = carsViewModel {
+                addViewController.addViewModel = carsViewModel.addViewModel()
+            }
+            
+            if let navigationController = navigationController {
+                navigationController.pushViewController(addViewController, animated: true)
+            }
+        }
+    }
 }
 
 extension CarsViewController: UITableViewDataSource {

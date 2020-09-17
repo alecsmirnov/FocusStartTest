@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="C9K-ss-n8L">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="vu4-yb-rZw">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -7,7 +7,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Edit-->
+        <!--Edit record-->
         <scene sceneID="dE0-cP-tla">
             <objects>
                 <viewController storyboardIdentifier="EditViewController" id="59d-wW-n0N" customClass="EditViewController" customModule="CarCatalog" customModuleProvider="target" sceneMemberID="viewController">
@@ -90,7 +90,7 @@
                         <viewLayoutGuide key="safeArea" id="mCu-gT-MJ8"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Edit" id="25P-Fg-LC2"/>
-                    <navigationItem key="navigationItem" id="B7k-qe-lJq"/>
+                    <navigationItem key="navigationItem" title="Edit record" id="B7k-qe-lJq"/>
                     <connections>
                         <outlet property="manufacturerTextField" destination="goA-Lc-jZr" id="gK7-I1-nkT"/>
                         <outlet property="modelTextField" destination="ICk-QA-4tU" id="J21-28-zjf"/>
@@ -128,7 +128,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="cfn-Al-T4x">
-                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="CarsTableViewCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CarsTableViewCell" rowHeight="129" id="vTn-ZI-t97" customClass="CarsTableViewCell" customModule="CarCatalog" customModuleProvider="target">
@@ -211,15 +211,20 @@
                         <constraints>
                             <constraint firstItem="cfn-Al-T4x" firstAttribute="trailing" secondItem="b7i-rF-pMe" secondAttribute="trailing" id="6wf-2k-srf"/>
                             <constraint firstItem="cfn-Al-T4x" firstAttribute="bottom" secondItem="b7i-rF-pMe" secondAttribute="bottom" id="7v6-Lf-N4a"/>
-                            <constraint firstItem="cfn-Al-T4x" firstAttribute="top" secondItem="b7i-rF-pMe" secondAttribute="top" id="IUf-mU-dUB"/>
+                            <constraint firstItem="cfn-Al-T4x" firstAttribute="top" secondItem="b7i-rF-pMe" secondAttribute="top" id="LyI-Ud-gV3"/>
                             <constraint firstItem="cfn-Al-T4x" firstAttribute="leading" secondItem="b7i-rF-pMe" secondAttribute="leading" id="piJ-43-AbS"/>
                             <constraint firstItem="tKq-IY-sCa" firstAttribute="centerX" secondItem="gXd-5a-f63" secondAttribute="centerX" id="rax-aP-OlR"/>
                             <constraint firstItem="tKq-IY-sCa" firstAttribute="centerY" secondItem="gXd-5a-f63" secondAttribute="centerY" constant="-40" id="v2K-W9-uu7"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="b7i-rF-pMe"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Cars" id="fW1-9Q-RFt"/>
-                    <navigationItem key="navigationItem" id="XkE-7Q-aao"/>
+                    <navigationItem key="navigationItem" title="Cars" id="XkE-7Q-aao">
+                        <barButtonItem key="rightBarButtonItem" title="Add" image="plus" catalog="system" id="Nai-EW-5xD">
+                            <connections>
+                                <action selector="didTapAdd:" destination="g04-sb-ZFw" id="IxQ-GW-Gcp"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="carsTableView" destination="cfn-Al-T4x" id="oPK-UG-Alc"/>
                         <outlet property="emptyTableViewLabel" destination="tKq-IY-sCa" id="uU1-nP-f8d"/>
@@ -227,27 +232,9 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="U15-Pj-mGo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="387" y="1422"/>
+            <point key="canvasLocation" x="386.95652173913044" y="1421.6517857142856"/>
         </scene>
-        <!--Tab Bar Controller-->
-        <scene sceneID="WVD-Re-evv">
-            <objects>
-                <tabBarController id="C9K-ss-n8L" sceneMemberID="viewController">
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Lnc-NT-UkL">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    </tabBar>
-                    <connections>
-                        <segue destination="vu4-yb-rZw" kind="relationship" relationship="viewControllers" id="ZLx-Zx-t6y"/>
-                        <segue destination="Z67-rj-fgM" kind="relationship" relationship="viewControllers" id="s7n-wm-TAt"/>
-                    </connections>
-                </tabBarController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Rhd-tO-RF4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="758" y="-5"/>
-        </scene>
-        <!--Add-->
+        <!--Add new car-->
         <scene sceneID="rdk-rM-owc">
             <objects>
                 <viewController storyboardIdentifier="AddViewController" id="Z67-rj-fgM" customClass="AddViewController" customModule="CarCatalog" customModuleProvider="target" sceneMemberID="viewController">
@@ -318,7 +305,7 @@
                         <viewLayoutGuide key="safeArea" id="W01-rp-9ZJ"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Add" image="plus.circle" catalog="system" selectedImage="plus.circle.fill" id="zgB-s3-L8J"/>
-                    <navigationItem key="navigationItem" id="ZmT-tC-pdQ"/>
+                    <navigationItem key="navigationItem" title="Add new car" id="ZmT-tC-pdQ"/>
                     <connections>
                         <outlet property="manufacturerTextField" destination="nd8-8Q-nih" id="NGm-Ce-RxB"/>
                         <outlet property="modelTextField" destination="BOD-fq-shb" id="teg-Zq-j7H"/>
@@ -328,12 +315,13 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UIF-bU-AOK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1124.6376811594205" y="732.58928571428567"/>
+            <point key="canvasLocation" x="1162" y="1422"/>
         </scene>
     </scenes>
     <resources>
         <image name="car" catalog="system" width="128" height="93"/>
         <image name="car.fill" catalog="system" width="128" height="93"/>
+        <image name="plus" catalog="system" width="128" height="113"/>
         <image name="plus.circle" catalog="system" width="128" height="121"/>
         <image name="plus.circle.fill" catalog="system" width="128" height="121"/>
     </resources>
