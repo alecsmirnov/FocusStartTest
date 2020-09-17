@@ -9,7 +9,7 @@
 import Foundation
 
 class CarsViewModel {
-    weak var delegate: CarsViewModelDisplayDelegate!
+    weak var delegate: CarsViewModelDisplayDelegate?
     
     var rowsCount: Int {
         return carsModel.count

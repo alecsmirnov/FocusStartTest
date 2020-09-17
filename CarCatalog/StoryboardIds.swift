@@ -11,7 +11,6 @@ import Foundation
 enum StoryboardIds {
     static let carsViewController   = "CarsViewController"
     static let carsTableViewCell    = "CarsTableViewCell"
-    static let editorViewController = "EditorViewController"
     static let editViewController   = "EditViewController"
     static let addViewController    = "AddViewController"
 }

@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8444C0F925112AE40057457E /* EntityNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8444C0F825112AE40057457E /* EntityNames.swift */; };
 		84578247251090E1006164DD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84578246251090E1006164DD /* AppDelegate.swift */; };
 		84578249251090E1006164DD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84578248251090E1006164DD /* SceneDelegate.swift */; };
 		8457824E251090E1006164DD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8457824C251090E1006164DD /* Main.storyboard */; };
@@ -33,7 +32,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		8444C0F825112AE40057457E /* EntityNames.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntityNames.swift; sourceTree = "<group>"; };
 		84578243251090E1006164DD /* CarCatalog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CarCatalog.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84578246251090E1006164DD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		84578248251090E1006164DD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -143,7 +141,6 @@
 		845782812511031B006164DD /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
-				8444C0F825112AE40057457E /* EntityNames.swift */,
 				8457828A251103F1006164DD /* CarEntity+CoreDataClass.swift */,
 				8457828B251103F1006164DD /* CarEntity+CoreDataProperties.swift */,
 			);
@@ -238,7 +235,6 @@
 				84578247251090E1006164DD /* AppDelegate.swift in Sources */,
 				84578249251090E1006164DD /* SceneDelegate.swift in Sources */,
 				845782752510B5D0006164DD /* CarsViewModelDisplayDelegate.swift in Sources */,
-				8444C0F925112AE40057457E /* EntityNames.swift in Sources */,
 				8457827F2510CF3F006164DD /* AddViewModel.swift in Sources */,
 				8457826725109471006164DD /* EditorViewController.swift in Sources */,
 			);

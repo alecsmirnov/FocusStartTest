@@ -9,7 +9,7 @@
 import Foundation
 
 class EditorViewModel {
-    internal weak var delegate: EditorViewModelDelegate!
+    internal weak var delegate: EditorViewModelDelegate?
     
     func userAddedCar(year: String, manufacturer: String, model: String, type: String) {
         fatalError("this method must be overridden")

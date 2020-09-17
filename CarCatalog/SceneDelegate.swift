@@ -64,6 +64,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
     }
     
+    // MARK: App settings entry point
+    
     private func fillModel() {
         if carsModel.isEmpty {
             let car1 = Car(year: "2001", manufacturer: "Ford", model: "Shelby GT500", type: "2-door coupe")

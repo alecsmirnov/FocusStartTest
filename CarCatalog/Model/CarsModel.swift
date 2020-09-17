@@ -26,10 +26,10 @@ class CarsModel {
     }
     
     private var data: [CarEntity] = []
-    private var managedContext: NSManagedObjectContext!
+    private var managedContext: NSManagedObjectContext
     
     init() {
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
         managedContext = appDelegate.persistentContainer.viewContext
         
         let fetchRequest: NSFetchRequest<CarEntity> = CarEntity.fetchRequest()
@@ -42,25 +42,19 @@ class CarsModel {
     }
     
     func append(car: Car) {
-        if let managedContext = managedContext {
-            guard let carEntityDescription = NSEntityDescription.entity(forEntityName: EntityNames.car, in: managedContext) else {
-                fatalError("incorrect entity name: \(EntityNames.car)")
-            }
-            
-            let carEntity = CarEntity(entity: carEntityDescription, insertInto: managedContext)
-            
-            carEntity.year = car.year
-            carEntity.manufacturer = car.manufacturer
-            carEntity.model = car.model
-            carEntity.type = car.type
-            
-            do {
-                data.append(carEntity)
-                
-                try managedContext.save()
-            } catch let error as NSError {
-                fatalError("could not save. \(error), \(error.userInfo)")
-            }
+        let carEntity = CarEntity(context: managedContext)
+        
+        carEntity.year = car.year
+        carEntity.manufacturer = car.manufacturer
+        carEntity.model = car.model
+        carEntity.type = car.type
+        
+        data.append(carEntity)
+        
+        do {
+            try managedContext.save()
+        } catch let error as NSError {
+            fatalError("could not save. \(error), \(error.userInfo)")
         }
     }
     
@@ -82,19 +76,17 @@ class CarsModel {
         
         data.remove(at: index)
         
-        if let managedContext = managedContext {
-            let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: EntityNames.car)
+        let fetchRequest: NSFetchRequest<CarEntity> = CarEntity.fetchRequest()
 
-            do {
-                let entities = try managedContext.fetch(fetchRequest) as! [CarEntity]
-                let entityObject = entities[index] as NSManagedObject
-                    
-                managedContext.delete(entityObject)
-                    
-                try managedContext.save()
-            } catch let error as NSError {
-                fatalError("could not fetch. \(error), \(error.userInfo)")
-            }
+        do {
+            let entities = try managedContext.fetch(fetchRequest)
+            let entityObject = entities[index] as NSManagedObject
+                
+            managedContext.delete(entityObject)
+                
+            try managedContext.save()
+        } catch let error as NSError {
+            fatalError("could not fetch. \(error), \(error.userInfo)")
         }
     }
     
@@ -103,37 +95,33 @@ class CarsModel {
             fatalError("index is out of range")
         }
         
-        if let managedContext = managedContext {
-            do {
-                data[index].year = car.year
-                data[index].manufacturer = car.manufacturer
-                data[index].model = car.model
-                data[index].type = car.type
-                    
-                try managedContext.save()
-            } catch let error as NSError {
-                fatalError("could not fetch. \(error), \(error.userInfo)")
-            }
+        data[index].year = car.year
+        data[index].manufacturer = car.manufacturer
+        data[index].model = car.model
+        data[index].type = car.type
+        
+        do {
+            try managedContext.save()
+        } catch let error as NSError {
+            fatalError("could not fetch. \(error), \(error.userInfo)")
         }
     }
     
     func removeAll() {
         data.removeAll()
         
-        if let managedContext = managedContext {
-            let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: EntityNames.car)
+        let fetchRequest: NSFetchRequest<CarEntity> = CarEntity.fetchRequest()
 
-            do {
-                let entities = try managedContext.fetch(fetchRequest)
+        do {
+            let entities = try managedContext.fetch(fetchRequest)
 
-                for entity in entities {
-                    let entityObject = entity as! NSManagedObject
+            for entity in entities {
+                let entityObject = entity as NSManagedObject
 
-                    managedContext.delete(entityObject)
-                }
-            } catch let error as NSError {
-                fatalError("could not fetch. \(error), \(error.userInfo)")
+                managedContext.delete(entityObject)
             }
+        } catch let error as NSError {
+            fatalError("could not fetch. \(error), \(error.userInfo)")
         }
     }
     

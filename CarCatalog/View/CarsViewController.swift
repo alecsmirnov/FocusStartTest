@@ -8,6 +8,7 @@
 
 import UIKit
 
+// Rules for updating carsTableView content when its changes
 private enum ScheduleReloadType: Equatable {
     case none
     case all
@@ -36,6 +37,8 @@ class CarsViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
         switch reloadType {
         case ScheduleReloadType.all:
             carsTableView.reloadData()
