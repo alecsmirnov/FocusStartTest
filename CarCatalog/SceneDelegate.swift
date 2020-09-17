@@ -8,11 +8,6 @@
 
 import UIKit
 
-private enum TabBarItems {
-    static let cars = 0
-    static let add  = 1
-}
-
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var window: UIWindow?
     
