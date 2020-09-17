@@ -8,7 +8,7 @@
 
 import UIKit
 
-class EditorViewController: UIViewController {    
+class EditorViewController: UIViewController {
     @IBOutlet internal var yearTextField: UITextField!
     @IBOutlet internal var manufacturerTextField: UITextField!
     @IBOutlet internal var modelTextField: UITextField!
@@ -23,5 +23,15 @@ class EditorViewController: UIViewController {
         alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
 
         self.present(alert, animated: true)
+    }
+    
+    internal func showMessageBox(message: String, durationTime: Double) {
+        let alert = UIAlertController(title: "", message: message, preferredStyle: .alert)
+        
+        self.present(alert, animated: true, completion: nil)
+        
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + durationTime) {
+            alert.dismiss(animated: true, completion: nil)
+        }
     }
 }

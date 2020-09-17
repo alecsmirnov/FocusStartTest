@@ -60,6 +60,8 @@ class EditViewController: EditorViewController {
             }
             
             editViewModel.userChangedCar(year: year, manufacturer: manufacturer, model: model, type: type)
+            
+            showMessageBox(message: "Record edited successfully", durationTime: 1)
         }
     }
     

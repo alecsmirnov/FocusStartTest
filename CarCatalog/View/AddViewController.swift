@@ -44,6 +44,8 @@ class AddViewController: EditorViewController {
             
             addViewModel.userAddedCar(year: year, manufacturer: manufacturer, model: model, type: type)
             
+            showMessageBox(message: "New car added successfully", durationTime: 1)
+            
             yearTextField.text = ""
             manufacturerTextField.text = ""
             modelTextField.text = ""
