@@ -38,6 +38,8 @@ class CarsViewModel {
     }
 }
 
+// MARK: - EditorViewModelDelegate
+
 extension CarsViewModel: EditorViewModelDelegate {
     func editorViewModelDelegateAddCar(_ viewModel: AnyObject, car: Car) {
         carsModel.append(car: car)

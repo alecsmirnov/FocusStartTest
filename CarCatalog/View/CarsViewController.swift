@@ -68,6 +68,8 @@ class CarsViewController: UIViewController {
     }
 }
 
+// MARK: - UITableViewDataSource
+
 extension CarsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         var rowsCount = 0
@@ -91,6 +93,8 @@ extension CarsViewController: UITableViewDataSource {
         return carsTableViewCell
     }
 }
+
+// MARK: - UITableViewDelegate
 
 extension CarsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -129,6 +133,8 @@ extension CarsViewController: UITableViewDelegate {
         return UISwipeActionsConfiguration(actions: [delete, edit])
     }
 }
+
+// MARK: - CarsViewModelDisplayDelegate
 
 extension CarsViewController: CarsViewModelDisplayDelegate {
     func carsViewModelDisplayDelegateReloadRow(_ viewController: AnyObject, at index: Int) {
