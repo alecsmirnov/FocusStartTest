@@ -8,14 +8,16 @@
 
 import Foundation
 
-class AddViewModel: EditorViewModel {
+class AddViewModel {
+    weak var delegate: EditorViewModelDelegate?
+    
     convenience init(delegate: EditorViewModelDelegate) {
         self.init()
         
         self.delegate = delegate
     }
     
-    override func userAddedCar(year: String, manufacturer: String, model: String, type: String) {
+    func userAddedCar(year: String, manufacturer: String, model: String, type: String) {
         if let delegate = delegate {
             let car = Car(year: year, manufacturer: manufacturer, model: model, type: type)
             

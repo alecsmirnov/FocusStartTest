@@ -8,11 +8,13 @@
 
 import Foundation
 
-class EditViewModel: EditorViewModel {
+class EditViewModel {
     let year: String
     let manufacturer: String
     let model: String
     let type: String
+    
+    weak var delegate: EditorViewModelDelegate?
     
     private let row: Int
     
@@ -31,7 +33,7 @@ class EditViewModel: EditorViewModel {
         self.delegate = delegate
     }
     
-    override func userChangedCar(year: String, manufacturer: String, model: String, type: String) {
+    func userChangedCar(year: String, manufacturer: String, model: String, type: String) {
         if let delegate = delegate {
             let car = Car(year: year, manufacturer: manufacturer, model: model, type: type)
             
@@ -39,7 +41,7 @@ class EditViewModel: EditorViewModel {
         }
     }
     
-    override func userDeletedCar() {
+    func userDeletedCar() {
         if let delegate = delegate {
             delegate.editorViewModelDelegateDeleteCar(self, at: row)
         }
